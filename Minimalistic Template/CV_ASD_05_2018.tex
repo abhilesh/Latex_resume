@@ -1,0 +1,267 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[letter, 12pt]{article}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{color}
+%\usepackage{baskervald}
+\usepackage{fontspec}
+\usepackage{multirow}
+\usepackage{tabularx}
+%\usepackage{array}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{xltxtra}
+\usepackage{gensymb}
+
+\setmainfont{Times}
+
+\definecolor{linkcolour}{rgb}{0,0.2,0.7}
+\hypersetup{colorlinks, breaklinks, urlcolor=linkcolour, linkcolor = linkcolour}
+
+\pagestyle{plain}
+
+\geometry{left=1in,top=1in,right=1in,bottom=1in,nohead,headheight=0in }
+ \pagenumbering{gobble}
+ 
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+ 
+% Name and contact information
+\newcommand{\name}{Abhilesh Dhawanjewar}
+\newcommand{\street}{302, Manter Hall, UNL}
+\newcommand{\city}{Lincoln NE}
+\newcommand{\postal}{68588}
+\newcommand{\phone}{(402) 613-5031}
+
+\newcommand{\affil}{Ph.D. Student (Evolutionary Biology)\\
+   University of Nebraska-Lincoln, USA}
+\newcommand{\email}{\href{mailto:abhilesh.dhawanjewar@huskers.unl.edu}{abhilesh.dhawanjewar@huskers.unl.edu}, \\
+& \href{mailto:abhilesh7@gmail.com}{abhilesh7@gmail.com} } 
+
+% Colors
+\definecolor{light-grey}{gray}{0.3}
+ 
+% A horizontal rule for sections
+\newcommand{\HRule}[2]{\textcolor{#1}{\rule{\linewidth}{#2}}}
+ 
+% A section tile command
+ \newcommand{\sectiontitle}[1]{\begin{minipage}{\textwidth}\raggedright\MakeUppercase{#1}\end{minipage}\vspace{-2mm}\\\HRule{light-grey}{0.25mm}\vspace{0mm}}
+ 
+% An environment for a resume section
+\newenvironment{ressection}[1]{
+  \sectiontitle{#1}}
+  {\vspace{3mm}}
+ 
+% A ressection that has to be on one page, awards, education etc
+\newenvironment{tressection}[1]{
+%   \begin{minipage}{\textwidth}
+  \sectiontitle{#1}
+  \noindent
+  \tabularx{\linewidth}{m{0mm} @{}X r}
+  }
+   {
+   \endtabularx 
+%    \end{minipage}
+   }
+
+\newenvironment{nressection}[1]{
+%   \begin{minipage}{\textwidth}
+  \noindent
+  \tabularx{\linewidth}{m{0mm} @{}X r}
+  }
+   {
+   \endtabularx 
+%    \end{minipage}
+   }
+
+\newenvironment{tightressection}[1]{
+  \begin{minipage}{\textwidth}
+  \sectiontitle{#1}}
+   { \vspace{\baselineskip}\end{minipage}}
+
+   
+% A column if there is a two columned section such as in awards
+\newenvironment{rescolumn}{
+  \begin{minipage}{0.5\textwidth}
+    \begin{itemize}[leftmargin=6mm,nolistsep]}
+  {\end{itemize}
+    \end{minipage}}
+ 
+ % A single column for the section on Technical skills
+\newenvironment{arescolumn}{
+  \begin{minipage}{\textwidth}
+    \begin{itemize}[leftmargin=6mm,nolistsep]}
+  {\end{itemize}
+    \end{minipage}}
+ 
+% A resitem is a simple list element
+\newcommand{\resitem}[1]{
+    \vspace{2pt}
+    \item[-] \begin{flushleft} #1 \end{flushleft}
+% 	  \item[] #1
+	  \itemsep -0.1em \vspace{-0.1em}
+}
+ 
+\newcommand{\tresitem}[2]{
+    \vspace{2pt}
+      \raisebox{0.25ex} & #1 & \textcolor{light-grey}{#2} \\
+}
+
+\newcommand{\boardentry}[3]{
+  \begin{minipage}{\textwidth}
+  \vspace{-9pt}
+  \textbf{#1}\\
+  \textit{#2}, \textit{#3}\\
+  \vspace{0.5\baselineskip}
+  \end{minipage}
+}
+ 
+\newcommand{\resedentry}[3]{
+  \begin{minipage}{\textwidth}
+%   \vspace{-10pt}
+  \textbf{#1}\\
+  \textit{#2}\hfill\textcolor{light-grey}{#3}\\
+  \vspace{0.5\baselineskip}
+  \end{minipage}
+}
+ 
+\newcommand{\resentryheader}[4]{
+    \vspace{-5pt}
+    \S \  \textbf{#1}\hspace{\stretch{1}}\textcolor{light-grey}{#3}\\
+     #2, #4 \vspace{2mm}
+}
+
+ \newenvironment{resentry}[4]{\vspace{3.5mm}
+  \begin{minipage}{\textwidth}
+    \resentryheader{#1}{#2}{#3}{#4}
+        \vspace{-3.5mm}
+    \begin{list}{$\cdot$}{\setlength{\leftmargin}{6mm}}
+    }
+{
+    \end{list}
+        \vspace{1mm}
+        \end{minipage}
+}
+
+\begin{document}
+
+\hyphenchar\font=-1
+\sloppy
+
+%%%%%% Curriculum Vitae %%%%%%
+
+\begin{tabularx}{\linewidth}{X r}
+\multirow{3}{*}{\hspace*{-2.5mm}\large{\textbf{\name}}} & \\
+\vspace{2mm} & \vspace{2mm} \\
+School of Biological Sciences, &  \\
+University of Nebraska-Lincoln, & \href{mailto:abhilesh.dhawanjewar@huskers.unl.edu}{abhilesh.dhawanjewar@huskers.unl.edu} \\
+Lincoln, NE-68588, USA & \href{mailto:abhilesh7@gmail.com}{abhilesh7@gmail.com} \\
+\end{tabularx} 
+
+\vspace{4mm}
+
+\begin{tressection}{Education} 
+	\tresitem{\textbf{Ph.D. in Evolutionary Biology,}} {Expected 2020} \vspace{-2.5mm}
+	\tresitem{University of Nebraska-Lincoln, Lincoln, Nebraska, USA}{} 
+	\tresitem{Advisors: Dr. Colin Meiklejohn and Dr. Kristi Montooth}{}
+	\\
+	\tresitem{\textbf{Integrated B.S.-M.S. Dual Degree,}} {May 2015} \vspace{-2.5mm}
+	\tresitem{Indian Institute of Science Education and Research, Pune, India}{}
+	\tresitem{Advisor: Dr. M.S. Madhusudhan}{}
+	
+\end{tressection}
+\vspace{1mm}
+
+%\begin{ressection}{Research Interests}
+%I investigate the evolution of genetic networks, especially those involving mitochondrial-nuclear interactions, using experimental and computational approaches. My current projects involve testing models of mitochondrial-nuclear coevolution by estimating the temporal order of amino acid substitutions in the nuclear and mitochondrially-encoded proteins comprising the molecular machinery for oxidative phosphorylation. I also investigate the genetic basis of heat-induced male sterility through experiments using mitochondrial-nuclear hybrids of Drosophila.
+%\end{ressection}
+
+\begin{tressection}{Publications}
+	\tresitem{\textbf{Dhawanjewar A.}, Sharma P., and M.S. Madhusudhan, PIZSA: An empirical scoring scheme to assess protein-protein interactions. \textit{Nucleic Acids Research}. Under Review.}{}
+	\\
+	\tresitem{\textbf{Dhawanjewar A.}, Meese S., Baba Y., Tanaka K., Li S., Uhl G., Krehenwinkel H.,  A genome-wide phylogeography of a highly dispersive Palearctic spider provides insights into the causes of incongruent divergence of mitochondrial and nuclear genomes. \textit{Molecular Ecology}. In prep.}{}
+\end{tressection}
+\vspace{1mm}
+
+\begin{tressection}{Presentations}
+	\tresitem{\underline{Invited Talks}}{}
+	\tresitem{``Population Genomics of the range expanding populations of \textit{Argiope bruennichi}". 20\textsuperscript{th} International Congress of Arachnology, Golden, Colorado}{Jul 2016}
+	\tresitem{\underline{Oral Presentations}}{}
+	\tresitem{``Mitochondrial-Nuclear Interactions and the Thermal Sensitivity of Male Reproduction". Mitochondrial Genomics and Evolution, an SMBE Satellite Meeting, Ein Gedi, Israel}{Sep 2017}
+	\tresitem{\underline{Poster Presentations}}{}
+	\tresitem{``Mitochondrial-Nuclear Interactions and the Thermal Sensitivity of Male Reproduction". University of Nebraska-Lincoln Spring Research Fair, Lincoln, Nebraska}{Apr 2017}
+	\tresitem{``Mitochondrial-Nuclear Interactions and the Thermal Sensitivity of Male Reproduction". 58\textsuperscript{th} Annual Drosophila Research Conference, San Diego, California}{Mar 2017}
+	\tresitem{``Prediction of Protein-Protein Interactions through the use of Statistical Potentials". BioPhysics Paschim, IIT Mumbai, India}{Mar 2015}
+%	\medskip
+	\tresitem{``Comparative Mitogenomic Analysis in the range expanding populations of \textit{Argiope bruennichi}". Workshop on Quantitative Evolutionary Biology, \c{S}irince, Turkey}{Sep 2014}
+\end{tressection}
+\vspace{1mm}
+
+
+\begin{tressection}{Awards and Grants}
+	\tresitem{Jessie A. Lee Fund, \$2000 by the \textit{School of Biological Sciences, 
+	University of Nebraska-Lincoln}}{2018}
+	\tresitem{Best Poster Award, \$100 by the \textit{School of Biological Sciences, University of Nebraska-Lincoln}}{2018}
+	\tresitem{Registration Award, \$450 by the \textit{Society for Molecular Biology and Evolution}}{2018}
+	\tresitem{Travel Grant, \$250 by the \textit{Society for Molecular Biology and Evolution}}{2017}
+	\tresitem{Runner-up Best Poster Award, \$50 by the \textit{School of Biological Sciences, University of Nebraska-Lincoln}}{2017}
+	\tresitem{Mary D. Rogick Memorial Fund, \$1300 by \textit{School of Biological Sciences, University of Nebraska-Lincoln}}{2017}
+	\tresitem{Travel Grant, \$500 by the \textit{Society for the Study of Evolution}}{2016}
+	\tresitem{Blair Paxton Udale Fund for Life Sciences, \$1500 by \textit{The University of Nebraska Foundation}}{2016}
+	\tresitem{Rosemary Grant Award, \$2500 by \textit{The Society of the Study of Evolution}}{2016}
+	\tresitem{Travel Grant, \$1300 by \textit{Indian Institute of Science Education and Research, Pune, India}}{2014}
+	\tresitem{Travel Grant, \$250 by \textit{The American Society of Naturalists}}{2014}
+	\medskip
+	\tresitem{Working Internship of \$3500 at the \textit{Max Planck Institute for Evolutionary Biology}, Pl\"{o}n, Germany}{2013}
+	\medskip
+	\tresitem{INSPIRE Scholarship, \$8000 by the \textit{Department of Science and Technology, India}}{2010}
+	\tresitem{National Talent Search Examination (NTSE) Scholar, \$250 by the \textit{National Council of Educational Research and Training, India}}{2006}
+\end{tressection}
+\vspace{1mm}
+
+\begin{tressection}{Outreach}
+	\tresitem{Boys and Girls Science Club with Lincoln Community Learning Centers, Park Middle School}{2016 - 2017}
+	\tresitem{Junior Sunday with a Scientist: Nebraska State Museum}{2017}
+	\tresitem{Sunday with a Scientist: Diversity of Life in Nebraska, Nebraska State Museum}{2017}
+	\tresitem{Sunday with a Scientist: Darwin Day, Nebraska State Museum}{2017}
+	\tresitem{Science Night Live Moderator: SciComm 2016}{2016}
+	\tresitem{Sunday with a Scientist: Evolution on the Wing, Nebraska State Museum}{2016}
+	\tresitem{Junior Sunday with a Scientist: Nebraska State Museum}{2016}
+	\tresitem{Investigate: Show-and-tell Amblypygi, Nebraska State Museum}{2016}
+\end{tressection}
+\vspace{1mm}
+
+\newpage
+
+\begin{tressection}{Teaching}
+	\tresitem{Guest Lecture, BIOS-897 - Communicating Science Through Outreach}{Spring 2018}
+	\tresitem{Guest Lecture, BIOS-897 - Communicating Science Through Outreach}{Spring 2017}
+	\tresitem{Graduate Teaching Assistant, LIFE120L - Fundamental Biology Lab}{Fall 2017}
+	\tresitem{}{Spring 2017}
+	\tresitem{}{Fall 2016}
+	\tresitem{Graduate Teaching Assistant, BIOS101L - General Biology Lab}{Spring 2016}
+	\tresitem{}{Fall 2015}
+\end{tressection}
+\vspace{1mm}
+
+\begin{tressection}{Service}
+	\tresitem{Vice President, Biology Graduate Students Association, UNL}{2017-2018}
+	\tresitem{Undergraduate Poster Judge, UNL Spring Research Fair}{Spring 2018}
+\end{tressection}
+\vspace{3mm}
+
+\begin{tressection}{Memberships}
+	\tresitem{Genetics Society of America}{2017-2018}
+	\tresitem{Society for the Study of Evolution}{2016-2018}
+	\tresitem{Society for Molecular Biology and Evolution}{2018}
+	\tresitem{International Society of Arachnologists}{2016-2017}
+	\tresitem{American Society of Naturalists}{2014}
+\end{tressection}
+
+\end{document}
