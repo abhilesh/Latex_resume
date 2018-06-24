@@ -1,84 +1,112 @@
-% fancyCV.cls - Defines the elements for the Fancy CV
+%% Start of file `awesome-cv.cls'.
+% Awesome CV Class File
+%
+% This class has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+% Notes:
+% 1) This class file defines the structure and layout of the template file (cv.tex, resume.tex).
+% 2) It has been written in such a way that under most circumstances you
+% should not need to edit it.
+%
+% Class license:
+% LPPL v1.3c (http://www.latex-project.org/lppl)
+%
 
-% Based on the AwesomeCV by Claud D. Park (https://github.com/posquit0/Awesome-CV)
 
-% ----------------------------
-% Document Metadata
-% ----------------------------
+%-------------------------------------------------------------------------------
+%                Identification
+%-------------------------------------------------------------------------------
+\ProvidesClass{awesome-cv}[2017/02/05 v1.6.1 Awesome Curriculum Vitae Class]
+\NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{fancy-cv}{v1.0 Fancy Academic Curriculum Vitae Class}
-\NeedsTexFormat{LaTeX2e}
 
-% ----------------------------
-% Class options (need to be declared before loading 3rd party libraries)
-% ----------------------------
+%-------------------------------------------------------------------------------
+%                Class options
+%
+% (need to be done before the external package loading, for example because
+% we need \paperwidth, \paperheight and \@ptsize to be defined before loading
+% geometry and fancyhdr)
+%-------------------------------------------------------------------------------
+% Options for draft or final
 \DeclareOption{draft}{\setlength\overfullrule{5pt}}
 \DeclareOption{final}{\setlength\overfullrule{0pt}}
-
+% Inherit options of article
 \DeclareOption*{%
-	\PassOptionsToClass{\CurrentOption}{article}
+  \PassOptionsToClass{\CurrentOption}{article}
 }
 \ProcessOptions\relax
 \LoadClass{article}
 
-% ----------------------------
-% Load 3rd Party packages
-% ----------------------------
 
-% To make fixed length tables
+%-------------------------------------------------------------------------------
+%                3rd party packages
+%-------------------------------------------------------------------------------
+% Needed to make fixed length table
 \RequirePackage{array}
-% To handle list environment
+% Needed to handle list environment
 \RequirePackage{enumitem}
-% To handle text alignment
+% Needed to handle text alignment
 \RequirePackage{ragged2e}
-% To configure page layout
+% Needed to configure page layout
 \RequirePackage{geometry}
-% To make header & footer
+% Needed to make header & footer effeciently
 \RequirePackage{fancyhdr}
-% To manage colors
+% Needed to manage colors
 \RequirePackage{xcolor}
-% To use \ifxetex-\else-\fi statement
+% Needed to use \ifxetex-\else-\fi statement
 \RequirePackage{ifxetex}
-% To use \if-\then-\else statement
+% Needed to use \if-\then-\else statement
 \RequirePackage{xifthen}
-% To use a toolbox of programming tools
+% Needed to use a toolbox of programming tools
 \RequirePackage{etoolbox}
-% To change line spacing in specific environment
+% Needed to change line spacing in specific environment
 \RequirePackage{setspace}
-% To manage fonts
+% Needed to manage fonts
 \RequirePackage[quiet]{fontspec}
 % To support LaTeX quoting style
 \defaultfontfeatures{Ligatures=TeX}
-% To manage math fonts
+% Needed to manage math fonts
 \RequirePackage{unicode-math}
-% To use icons from font-awesome
+% Needed to use icons from font-awesome
 % (https://github.com/posquit0/latex-fontawesome)
 \RequirePackage{fontawesome}
-\RequirePackage[default,opentype]{sourceanspro}
-% To use photo ID
+\RequirePackage[default,opentype]{sourcesanspro}
+% Needed for the photo ID
 \RequirePackage[skins]{tcolorbox}
-% To better manage paragraphs
+% Needed to deal a paragraphs
 \RequirePackage{parskip}
-% To manage hyperlinks
+% Needed to deal hyperlink
 \RequirePackage[hidelinks,unicode]{hyperref}
-\hypersetip{%
-	pdftitle={},
-	pdfauthor={},
-	pdfsubject={},
-	pdfkeywords={}
+\hypersetup{%
+  pdftitle={},
+  pdfauthor={},
+  pdfsubject={},
+  pdfkeywords={}
 }
 
-% Configure the fonts directory
+
+%-------------------------------------------------------------------------------
+%                Configuration for directory locations
+%-------------------------------------------------------------------------------
+% Configure a directory location for fonts(default: 'fonts/')
 \newcommand*{\fontdir}[1][fonts/]{\def\@fontdir{#1}}
 \fontdir
 
-% ----------------------------
-% Layout configuration
-% ----------------------------
-% Page layout
+
+%-------------------------------------------------------------------------------
+%                Configuration for layout
+%-------------------------------------------------------------------------------
+%% Page Layout
+% Configure page margins with geometry
 \geometry{left=2.0cm, top=1.5cm, right=2.0cm, bottom=2.0cm, footskip=.5cm}
 
 %% Header & Footer
+% Set offset to each header and footer
 \fancyhfoffset{0em}
 % Remove head rule
 \renewcommand{\headrulewidth}{0pt}
@@ -87,10 +115,10 @@
 % Enable if you want to make header or footer using fancyhdr
 \pagestyle{fancy}
 
-% ----------------------------
-% Color configuration
-% ----------------------------
 
+%-------------------------------------------------------------------------------
+%                Configuration for colors
+%-------------------------------------------------------------------------------
 % Gray-scale colors
 \definecolor{white}{HTML}{FFFFFF}
 \definecolor{black}{HTML}{000000}
@@ -128,10 +156,10 @@
   \ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}%
 }
 
-% ----------------------------
-% Fonts configuration
-% ----------------------------
 
+%-------------------------------------------------------------------------------
+%                Configuration for fonts
+%-------------------------------------------------------------------------------
 % Set the FontAwesome font to be up-to-date.
 \newfontfamily\FA[Path=\@fontdir]{FontAwesome}
 % Set font for header (default is Roboto)
@@ -155,10 +183,9 @@
 \newcommand*{\bodyfont}{\sourcesanspro}
 \newcommand*{\bodyfontlight}{\sourcesansprolight}
 
-% ----------------------------
-% Style configuration
-% ----------------------------
-
+%-------------------------------------------------------------------------------
+%                Configuration for styles
+%-------------------------------------------------------------------------------
 % Configure styles for each CV elements
 % For fundamental structures
 \newcommand*{\headerfirstnamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\color{graytext} #1}}
@@ -206,9 +233,10 @@
 \newcommand*{\letternamestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\letterenclosurestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\slshape\color{lighttext} #1}}
 
-%-----------------------------
-% Personal information 
-%-----------------------------
+
+%-------------------------------------------------------------------------------
+%                Commands for personal information
+%-------------------------------------------------------------------------------
 % Define photo ID
 % Usage: \photo[circle|rectangle,edge|noedge,left|right]{<path-to-image>}
 \newcommand{\photo}[2][circle,edge,left]{%
@@ -332,9 +360,10 @@
   \def\@letterenclosure{#2}
 }
 
-%-----------------------------
-% Extra commands
-%-----------------------------
+
+%-------------------------------------------------------------------------------
+%                Commands for extra
+%-------------------------------------------------------------------------------
 %% Define helper macros a user can change easily
 % Header
 \newcommand{\acvHeaderNameDelim}{\space}
@@ -351,9 +380,9 @@
 \newcommand{\acvSectionContentTopSkip}{2.5mm}
 
 
-%-----------------------------
-% Utilities
-%-----------------------------
+%-------------------------------------------------------------------------------
+%                Commands for utilities
+%-------------------------------------------------------------------------------
 % Use to align an element of tabular table
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -365,10 +394,10 @@
 % Use to execute conditional statements by checking empty string
 \newcommand*{\ifempty}[3]{\ifthenelse{\isempty{#1}}{#2}{#3}}
 
-%-----------------------------
-% CV elements
-%-----------------------------
 
+%-------------------------------------------------------------------------------
+%                Commands for elements of CV structure
+%-------------------------------------------------------------------------------
 % Define a header for CV
 % Usage: \makecvheader
 \newcommand*{\makecvheader}[1][C]{%
@@ -622,9 +651,9 @@
 }
 
 
-%-----------------------------
-% Cover letter elements
-%-----------------------------
+%-------------------------------------------------------------------------------
+%                Commands for elements of Cover Letter
+%-------------------------------------------------------------------------------
 % Define an environment for cvletter
 \newenvironment{cvletter}{%
   \lettertextstyle
