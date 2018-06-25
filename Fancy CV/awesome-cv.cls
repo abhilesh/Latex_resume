@@ -7,6 +7,9 @@
 % Author:
 % Claud D. Park <posquit0.bj@gmail.com>
 % http://www.posquit0.com
+% 
+% Modifications:
+% Abhilesh Dhawanjewar <abhilesh7@gmail.com>
 %
 % Notes:
 % 1) This class file defines the structure and layout of the template file (cv.tex, resume.tex).
@@ -575,6 +578,21 @@
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
   \end{tabular*}%
+}
+
+% Trying to add a custom entry for education
+% Usage: \eduentry{<degree>}{<location>}{<advisors>}{<date>}
+\newcommand*{\eduentry}[4]{
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#2#3}
+      {\entrytitlestyle{#1} & \entrylocationstyle{#4} \\}  % switching positions of 'location' and 'date'
+      {\entrytitlestyle{#1} & \entrylocationstyle{#4} \\
+      \entrypositionstyle{#2} \\
+      \descriptionstyle{#3}}
+  \end{tabular*}
 }
 
 % Define an environment for cvsubentry
