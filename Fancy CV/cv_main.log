@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.6.25)  25 JUN 2018 11:42
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.6.25)  25 JUN 2018 16:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1257,7 +1257,7 @@ LaTeX Font Info:    Font shape `TU/SourceSansPro(1)/m/n' will be
 (Font)              scaled to size 8.0pt on input line 16.
 LaTeX Font Info:    Font shape `TU/SourceSansPro(1)/m/sc' will be
 (Font)              scaled to size 8.0pt on input line 16.
-) (./cv/skills.tex
+) (./cv/publications.tex
 Overfull \hbox (24.8379pt too wide) in alignment at lines 10--28
 [] [] 
  []
@@ -1295,8 +1295,8 @@ Package rerunfilecheck Info: File `cv_main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  38983 strings out of 492969
- 760569 string characters out of 6133923
- 973765 words of memory out of 5000000
+ 760587 string characters out of 6133923
+ 973777 words of memory out of 5000000
  42502 multiletter control sequences out of 15000+600000
  534812 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
