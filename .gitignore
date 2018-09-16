@@ -1,1 +1,12 @@
-.DS_Store
+### TeX ###
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+
+## MacOS metadata files ##
+*.DS_Store
