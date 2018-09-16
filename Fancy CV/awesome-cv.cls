@@ -221,9 +221,13 @@
 \newcommand*{\honorpositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\honordatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
 \newcommand*{\honorlocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
+\newcommand*{\honorawardorgstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\honorawardnamestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
 
 % For elements of publications
-\newcommand*{\}
+\newcommand*{\pubauthorstyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\color{text} #1}}
+\newcommand*{\pubtitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\color{text} #1}}
+\newcommand*{\pubjournalstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 
 % For elements of skill
 \newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
@@ -623,6 +627,11 @@
   \end{tabular*}
 }
 
+
+%--------- Abhilesh was here ------------
+
+% Try to make this section into a 3-field table instead of the current 4
+
 % Define an environment for cvhonor
 \newenvironment{cvhonors}{%
   \vspace{\acvSectionContentTopSkip}
@@ -631,20 +640,33 @@
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.5cm} L{\textwidth - 4.0cm} R{2.5cm}}
-}{%
+}{
     \end{tabular*}
   \end{center}
 }
 % Define a line of cv information(honor, award or something else)
 % Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
 \newcommand*{\cvhonor}[4]{%
-  \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3} \\
+  \honordatestyle{#3} & \honorawardnamestyle{#1}, \honorawardorgstyle{#2} & \honorlocationstyle{#4} \\
 }
 
 %--------- Abhilesh was here ------------
 % Define an environment for cvpub
+%\newenvironment{cvpubs}{%
+%  \vspace{\acvSectionContentTopSkip}
+%}
+
 \newenvironment{cvpubs}{%
-  \vspace  
+  \vspace{\acvSectionContentTopSkip}
+  \begin{flushleft}
+}{%
+  \end{flushleft}
+}
+
+% Define a line of publication 
+% Usage: \cvpub{<author>}{<title>}{<journal>}
+\newcommand*{\pubentry}[3]{%
+  \pubauthorstyle{#1}  \pubtitlestyle{#2}  \pubjournalstyle{#3}
 }
 
 % Define an environment for cvskill
