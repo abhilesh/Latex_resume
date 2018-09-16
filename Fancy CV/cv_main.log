@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.4.15)  16 SEP 2018 01:44
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.4.15)  16 SEP 2018 01:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1173,38 +1173,28 @@ LaTeX Font Info:    Font shape `EU1/SourceSansPro(2)/bx/n' will be
 (Font)              scaled to size 10.0pt on input line 16.
 LaTeX Font Info:    Font shape `EU1/SourceSansPro(1)/m/it' will be
 (Font)              scaled to size 10.0pt on input line 16.
-) (./cv/presentations.tex
-LaTeX Font Info:    Font shape `EU1/SourceSansPro(2)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 23.
-LaTeX Font Info:    Font shape `EU1/SourceSansPro(2)/m/sl' in size <8> not avai
-lable
-(Font)              Font shape `EU1/SourceSansPro(2)/m/it' tried instead on inp
-ut line 23.
-LaTeX Font Info:    Font shape `EU1/SourceSansPro(2)/m/it' will be
-(Font)              scaled to size 8.0pt on input line 23.
-)
-(./cv/honors.tex
+) (./cv/honors.tex
 LaTeX Font Info:    Font shape `EU1/SourceSansPro(1)/m/n' will be
 (Font)              scaled to size 9.0pt on input line 16.
 LaTeX Font Info:    Font shape `EU1/SourceSansPro(1)/bx/n' will be
 (Font)              scaled to size 9.0pt on input line 16.
-) (./cv/outreach.tex [1
+) [1
 
-]) (./cv/teaching.tex [2])
-(./cv/service.tex) [3]
+]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 108.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 108.
- (./cv_main.aux)
+
+(./cv_main.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 108.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 108.
  ) 
 Here is how much of TeX's memory you used:
- 40327 strings out of 493632
- 768638 string characters out of 6144722
- 896586 words of memory out of 5000000
- 43210 multiletter control sequences out of 15000+600000
- 6576 words of font info for 84 fonts, out of 8000000 for 9000
+ 40299 strings out of 493632
+ 767977 string characters out of 6144722
+ 885592 words of memory out of 5000000
+ 43196 multiletter control sequences out of 15000+600000
+ 6560 words of font info for 82 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 72i,12n,89p,10383b,427s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,11n,89p,10383b,328s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on cv_main.pdf (3 pages).
+Output written on cv_main.pdf (1 page).
