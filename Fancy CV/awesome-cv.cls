@@ -148,6 +148,8 @@
 \definecolor{awesome-nephritis}{HTML}{27AE60}
 \definecolor{awesome-concrete}{HTML}{95A5A6}
 \definecolor{awesome-darknight}{HTML}{131A28}
+\definecolor{awesome-lightred}{HTML}{C84132}
+\definecolor{awesome-darkblue}{HTML}{014A6F}
 \colorlet{awesome}{awesome-red}
 
 % Boolean value to switch section color highlighting
@@ -155,10 +157,14 @@
 \setbool{acvSectionColorHighlight}{true}
 
 % Awesome section color
-\def\@sectioncolor#1#2#3{%
-  \ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}%
-}
+%\def\@sectioncolor#1#2#3{%
+%  \ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}%
+%}
 
+% Awesome section color
+\def\@sectioncolor{%
+  \ifbool{acvSectionColorHighlight}{\color{awesome-lightred}}{}%
+}
 
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
