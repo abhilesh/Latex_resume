@@ -645,15 +645,18 @@
   \begin{center}
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.5cm} L{\textwidth - 4.0cm} R{2.5cm}}
+    \hspace{-1cm}
+    \begin{tabular*}{\textwidth}{@{}C{1.5cm} L{\textwidth - 4.0cm} R{2.5cm}}
 }{
     \end{tabular*}
   \end{center}
 }
 % Define a line of cv information(honor, award or something else)
 % Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
-\newcommand*{\cvhonor}[4]{%
-  \honordatestyle{#3} & \honorawardnamestyle{#1}, \honorawardorgstyle{#2} & \honorlocationstyle{#4} \\
+
+% Change this to a 3-section fields
+\newcommand*{\cvhonor}[3]{%
+  \honordatestyle{#3} & \honorawardnamestyle{#1}, \honorawardorgstyle{#2}  \\ %\honorlocationstyle{#4}
 }
 
 %--------- Abhilesh was here ------------
