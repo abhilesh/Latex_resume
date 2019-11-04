@@ -210,7 +210,7 @@
 
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
+\newcommand*{\entrypositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
@@ -580,7 +580,10 @@
 }
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
-\newcommand*{\cventry}[5]{%
+
+%----------Abhilesh was here -------------
+% Removing the description field for now
+\newcommand*{\cventry}[4]{%
   \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
@@ -589,7 +592,23 @@
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
+    %\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
+  \end{tabular*}%
+}
+
+
+%---------Abhilesh was here-------------
+% Adding separate formatting for presentations
+\newcommand*{\cvpresentation}[4]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 3.5cm} R{3.5cm}}
+    \ifempty{#2#3}
+      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+    %\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
   \end{tabular*}%
 }
 
@@ -645,8 +664,10 @@
   \begin{center}
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
-    \hspace{-1cm}
-    \begin{tabular*}{\textwidth}{@{}C{1.5cm} L{\textwidth - 4.0cm} R{2.5cm}}
+    %\hspace{-1cm}
+    
+    % This is a hack for now!!! Convert the fixed distances to relative ones
+    \begin{tabular*}{\textwidth}{@{}L{\textwidth - 4.0cm} C{7.25cm} R{1.5cm}}
 }{
     \end{tabular*}
   \end{center}
@@ -656,7 +677,8 @@
 
 % Change this to a 3-section fields
 \newcommand*{\cvhonor}[3]{%
-  \honordatestyle{#3} & \honorawardnamestyle{#1}, \honorawardorgstyle{#2}  \\ %\honorlocationstyle{#4}
+  \honorawardnamestyle{#1}, \honorawardorgstyle{#2} & \honordatestyle{#3} \\
+ %\honordatestyle{#3} & \honorawardnamestyle{#1}, \honorawardorgstyle{#2}  \\ %\honorlocationstyle{#4}
 }
 
 %--------- Abhilesh was here ------------
