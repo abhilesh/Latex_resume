@@ -536,8 +536,7 @@
 
 % Define a footer for CV
 % Usage: \makecvfooter{<left>}{<center>}{<right>}
-\newcommand*{\makecvfooter}[3]{%
-  \fancyfoot{}
+\newcommand*{\makecvfooter}[3]{
   \fancyfoot[L]{\footerstyle{#1}}
   \fancyfoot[C]{\footerstyle{#2}}
   \fancyfoot[R]{\footerstyle{#3}}
@@ -655,8 +654,6 @@
 
 %--------- Abhilesh was here ------------
 
-% Try to make this section into a 3-field table instead of the current 4
-
 % Define an environment for cvhonor
 \newenvironment{cvhonors}{%
   \vspace{\acvSectionContentTopSkip}
@@ -667,7 +664,7 @@
     %\hspace{-1cm}
     
     % This is a hack for now!!! Convert the fixed distances to relative ones
-    \begin{tabular*}{\textwidth}{@{}L{\textwidth - 4.0cm} C{7.25cm} R{1.5cm}}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}L{\textwidth - 4.0cm} R{4cm} R{1mm}}
 }{
     \end{tabular*}
   \end{center}
@@ -678,6 +675,34 @@
 % Change this to a 3-section fields
 \newcommand*{\cvhonor}[3]{%
   \honorawardnamestyle{#1}, \honorawardorgstyle{#2} & \honordatestyle{#3} \\
+ %\honordatestyle{#3} & \honorawardnamestyle{#1}, \honorawardorgstyle{#2}  \\ %\honorlocationstyle{#4}
+}
+
+
+%-----------Abhilesh was here ------------
+% Define an environment for cvoutreach
+\newenvironment{cvoutreaches}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2mm}
+  \begin{center}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{0pt}
+    %\hspace{-1cm}
+    
+    % This is a hack for now!!! Convert the fixed distances to relative ones
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}L{\textwidth - 4.0cm} R{4cm} R{1mm}}
+}{
+    \end{tabular*}
+  \end{center}
+}
+% Define a line of cv information(honor, award or something else)
+% Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
+
+% Change this to a 3-section fields
+\newcommand*{\cvoutreach}[3]{%
+  \ifempty{#1#2}{
+  & \honordatestyle{#3}}
+  {\honorawardnamestyle{#1}, \honorawardorgstyle{#2} & \honordatestyle{#3}} \\
  %\honordatestyle{#3} & \honorawardnamestyle{#1}, \honorawardorgstyle{#2}  \\ %\honorlocationstyle{#4}
 }
 
