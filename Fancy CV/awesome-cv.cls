@@ -91,6 +91,10 @@
   pdfsubject={},
   pdfkeywords={}
 }
+% Needed to make better tables
+\RequirePackage{tabularx}
+% Needed for more modular date formatting (en-US seems to be required)
+\RequirePackage[en-US]{datetime2}
 
 
 %-------------------------------------------------------------------------------
@@ -680,6 +684,34 @@
 
 
 %-----------Abhilesh was here ------------
+% Define an environment for cvmemberships
+
+% Maybe convert this to a two-field class for memberships
+
+\newenvironment{cvmemberships}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2mm}
+  \begin{center}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{0pt}
+    %\hspace{-1cm}
+    
+    % This is a hack for now!!! Convert the fixed distances to relative ones
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}L{\textwidth - 4.0cm} R{4cm} R{1mm}}
+}{
+    \end{tabular*}
+  \end{center}
+}
+% Define a line of cv information(honor, award or something else)
+% Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
+
+% Change this to a 3-section fields
+\newcommand*{\cvmembership}[3]{%
+  \honorawardnamestyle{#1} \honorawardorgstyle{#2} & \honordatestyle{#3} \\
+ %\honordatestyle{#3} & \honorawardnamestyle{#1}, \honorawardorgstyle{#2}  \\ %\honorlocationstyle{#4}
+}
+
+%-----------Abhilesh was here ------------
 % Define an environment for cvoutreach
 \newenvironment{cvoutreaches}{%
   \vspace{\acvSectionContentTopSkip}
@@ -700,6 +732,34 @@
 
 % Change this to a 3-section fields
 \newcommand*{\cvoutreach}[3]{%
+  \ifempty{#1#2}{
+  & \honordatestyle{#3}}
+  {\honorawardnamestyle{#1}, \honorawardorgstyle{#2} & \honordatestyle{#3}} \\
+ %\honordatestyle{#3} & \honorawardnamestyle{#1}, \honorawardorgstyle{#2}  \\ %\honorlocationstyle{#4}
+}
+
+
+%-----------Abhilesh was here ------------
+% Define an environment for cvservice
+\newenvironment{cvservices}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2mm}
+  \begin{center}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{0pt}
+    %\hspace{-1cm}
+    
+    % This is a hack for now!!! Convert the fixed distances to relative ones
+    \begin{tabular*}{\textwidth}{@{\extracolsep{0pt}}L{\linewidth - 3cm} R{3cm} R{1mm}}
+}{
+    \end{tabular*}
+  \end{center}
+}
+% Define a line of cv information(honor, award or something else)
+% Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
+
+% Change this to a 3-section fields
+\newcommand*{\cvservice}[3]{%
   \ifempty{#1#2}{
   & \honordatestyle{#3}}
   {\honorawardnamestyle{#1}, \honorawardorgstyle{#2} & \honordatestyle{#3}} \\
