@@ -82,9 +82,9 @@
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
 \makecvfooter
-  {\DTMlangsetup{showdayofmonth=false}
-  \today % Leave the date out
-   \DTMlangsetup{showdayofmonth=true}}
+  %{\DTMlangsetup{showdow, showdayofmonth=false}
+   {\today} % Leave the date out
+  %\DTMlangsetup{showdow, showdayofmonth=true}}
   {Abhilesh Dhawanjewar~~~·~~~Curriculum Vitae}
   {\thepage}
 %-------------------------------------------------------------------------------
@@ -97,15 +97,15 @@
 \input{cv/education.tex}
 \vspace{-2mm}
 \input{cv/publications.tex}
-\vspace{-2mm}
+\vspace{2mm}
 \input{cv/honors.tex}
 \pagebreak
 \input{cv/presentations.tex}
 \vspace{-2mm}
 \input{cv/outreach.tex}
 \vspace{-2mm}
-\input{cv/teaching.tex}
 \pagebreak
+\input{cv/teaching.tex}
 \input{cv/service.tex}
 \vspace{-2mm}
 \input{cv/memberships.tex}
