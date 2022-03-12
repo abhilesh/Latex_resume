@@ -866,10 +866,12 @@
   \par\nobreak\addvspace{0.4ex}
 }
 
+%-----------Abhilesh was here ------------
 % Define a title of the cover letter
 % Usage: \makelettertitle
 \newcommand*{\makelettertitle}{%
-  \vspace{8.4mm}
+  \vspace{8.4mm}     % Default
+  %\vspace{4mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
@@ -878,6 +880,7 @@
   \begin{singlespace}
     \recipientaddressstyle{\@recipientaddress} \\\\
   \end{singlespace}
+  \vspace{-9mm}
   \ifthenelse{\isundefined{\@lettertitle}}
     {}
     {\lettertitlestyle{\@lettertitle} \\}
@@ -889,13 +892,14 @@
 % Usage: \makeletterclosing
 \newcommand*{\makeletterclosing}{%
   \vspace{3.4mm}
-  \lettertextstyle{\@letterclosing} \\\\\\\\\\\\\\
+  \lettertextstyle{\@letterclosing} \\\\\\\\
   \letternamestyle{\@firstname\ \@lastname}
   {}
   \ifthenelse{\isundefined{\@letterenclosure}}
     {\\}
     {%
-      \\\\\\
+      \\ \vspace{2mm}
+      %\\\\
       \letterenclosurestyle{\@letterenclname: \@letterenclosure} \\
     }
 }
