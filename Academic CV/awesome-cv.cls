@@ -95,6 +95,7 @@
 \RequirePackage{tabularx}
 % Needed for more modular date formatting (en-US seems to be required)
 %\RequirePackage[en-US]{datetime2}
+\RequirePackage{advdate}
 
 
 %-------------------------------------------------------------------------------
@@ -122,6 +123,11 @@
 % Enable if you want to make header or footer using fancyhdr
 \pagestyle{fancy}
 
+%-------------------------------------------------------------------------------
+%                Configuration for days
+%-------------------------------------------------------------------------------
+\newcommand{\yesterday}{{\AdvanceDate[-1]\today}}
+\newcommand{\tomorrow}{{\AdvanceDate[1]\today}}
 
 %-------------------------------------------------------------------------------
 %                Configuration for colors
@@ -274,6 +280,8 @@
 \def\@photoedge{edge}
 \def\@photoalign{left}
 
+\newcommand{\signature}[1]{\def\@signature}
+
 % Define writer's name
 % Usage: \name{<firstname>}{<lastname>}
 % Usage: \firstname{<firstname>}
@@ -370,6 +378,10 @@
 % Defines a message of closing for letter (cover letter only)
 % Usage: \letterclosing{<message>}
 \newcommand*{\letterclosing}[1]{\def\@letterclosing{#1}}
+
+%-----------Abhilesh was here ------------
+% Adding signature to letterclosing
+%\newcommand*{\letterclosing}[2]{\def\@letterclosing{#1}\def\@letterclosing{#2}}
 
 % Defines an enclosure for letter (cover letter only, optional)
 % Usage: \letterenclosure[<enclosure name>]{<enclosure>}
@@ -816,7 +828,25 @@
   \vspace{-4.0mm}
 }
 
+%--------- Abhilesh was here ------------
+% Define an environment for cvexpitems(for cventry)
+\newenvironment{cvexpitems}{%
+  \vspace{-1.0mm}
+  \begin{justify}
+  %\begin{itemize}
+  \begin{itemize}[leftmargin=0ex, itemindent=2ex, rightmargin=8ex]
+    \renewcommand{\labelitemi}{\textemdash}
+}{%
+  \end{itemize}
+  \end{justify}
+  %\vspace{2.0mm}
+}
 
+
+% Define a line of cv information(exp)
+\newcommand*{\cvexpitem}[1]{%
+	\skillsetstyle{{\large{\textemdash}} #1} \\
+}
 %-------------------------------------------------------------------------------
 %                Commands for elements of Cover Letter
 %-------------------------------------------------------------------------------
@@ -836,10 +866,12 @@
   \par\nobreak\addvspace{0.4ex}
 }
 
+%-----------Abhilesh was here ------------
 % Define a title of the cover letter
 % Usage: \makelettertitle
 \newcommand*{\makelettertitle}{%
-  \vspace{8.4mm}
+  \vspace{8.4mm}     % Default
+  %\vspace{4mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
@@ -848,22 +880,26 @@
   \begin{singlespace}
     \recipientaddressstyle{\@recipientaddress} \\\\
   \end{singlespace}
+  \vspace{-9mm}
   \ifthenelse{\isundefined{\@lettertitle}}
     {}
     {\lettertitlestyle{\@lettertitle} \\}
   \lettertextstyle{\@letteropening}
 }
 
+%-----------Abhilesh was here ------------
 % Define a closing of the cover letter
 % Usage: \makeletterclosing
 \newcommand*{\makeletterclosing}{%
   \vspace{3.4mm}
-  \lettertextstyle{\@letterclosing} \\\\
+  \lettertextstyle{\@letterclosing} \\\\\\\\
   \letternamestyle{\@firstname\ \@lastname}
+  {}
   \ifthenelse{\isundefined{\@letterenclosure}}
     {\\}
     {%
-      \\\\\\
+      \\ \vspace{2mm}
+      %\\\\
       \letterenclosurestyle{\@letterenclname: \@letterenclosure} \\
     }
 }
