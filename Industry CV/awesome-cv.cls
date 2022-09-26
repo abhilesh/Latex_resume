@@ -96,6 +96,8 @@
 % Needed for more modular date formatting (en-US seems to be required)
 %\RequirePackage[en-US]{datetime2}
 \RequirePackage{advdate}
+% For better control over lists
+\RequirePackage{enumitem}
 
 
 %-------------------------------------------------------------------------------
@@ -209,6 +211,9 @@
 % For fundamental structures
 \newcommand*{\headerfirstnamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\color{graytext} #1}}
 \newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\headerfont\bfseries\color{text} #1}}
+%-----------Abhilesh was here ------------
+\newcommand*{\headernametitlestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\color{graytext} #1}}
+%-----------Abhilesh was here ------------
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{awesome} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
@@ -287,11 +292,12 @@
 % Usage: \firstname{<firstname>}
 % Usage: \lastname{<lastname>}
 % Usage: \familyname{<familyname>}
-\newcommand*{\name}[2]{\def\@firstname{#1}\def\@lastname{#2}}
+\newcommand*{\name}[3]{\def\@firstname{#1}\def\@lastname{#2}\def\@nametitle{#3}}
 \newcommand*{\firstname}[1]{\def\@firstname{#1}}
 \newcommand*{\lastname}[1]{\def\@lastname{#1}}
 \newcommand*{\familyname}[1]{\def\@lastname{#1}}
 \def\@familyname{\@lastname}
+\newcommand*{\nametitle}[1]{\def\@nametitle{#1}}
 
 % Define writer's address
 % Usage: \address{<address>}
@@ -461,7 +467,7 @@
   \end{minipage}
   \begin{minipage}[c]{\headertextwidth}
     \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
-    \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
+    \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname\headerfirstnamestyle{,}}\headernametitlestyle{{}\acvHeaderNameDelim\@nametitle}%
     \\[\acvHeaderAfterNameSkip]%
     \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
     \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\[\acvHeaderAfterAddressSkip]}}%
@@ -833,8 +839,8 @@
 \newenvironment{cvexpitems}{%
   \vspace{-1.0mm}
   \begin{justify}
-  %\begin{itemize}
-  \begin{itemize}[leftmargin=0ex, itemindent=2ex, rightmargin=8ex]
+  \begin{itemize}[leftmargin=0ex, itemindent=2ex, labelsep=0ex, rightmargin=8ex, labelwidth=0ex]
+    %\setlength{\parskip}{0pt}
     \renewcommand{\labelitemi}{\textemdash}
 }{%
   \end{itemize}
