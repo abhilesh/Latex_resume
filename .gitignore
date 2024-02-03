@@ -7,6 +7,7 @@
 *.fls
 *.out
 *.toc
+*.synctex.gz
 
 ## MacOS metadata files ##
 *.DS_Store

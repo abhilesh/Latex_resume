@@ -96,6 +96,10 @@
 % Needed for more modular date formatting (en-US seems to be required)
 %\RequirePackage[en-US]{datetime2}
 \RequirePackage{advdate}
+% Needed for better interword spacing
+\RequirePackage{microtype}
+% Needed for multiple columns
+\RequirePackage{multicol}
 
 
 %-------------------------------------------------------------------------------
@@ -721,6 +725,24 @@
 \newcommand*{\cvmembership}[3]{%
   \honorawardnamestyle{#1} \honorawardorgstyle{#2} & \honordatestyle{#3} \\
  %\honordatestyle{#3} & \honorawardnamestyle{#1}, \honorawardorgstyle{#2}  \\ %\honorlocationstyle{#4}
+}
+
+%-----------Abhilesh was here ------------
+% Define an environment for cvpeerreview
+\newenvironment{cvpeerreview}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-4mm}
+  \begin{multicols}{2}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{0pt}
+}{
+  \end{multicols}
+}
+
+% Define a line of cv information(peer review)
+% Usage: \cvpeerreview{<title>}
+\newcommand*{\cvpeerreviewentry}[1]{%
+  \honorawardnamestyle{#1} \vspace{-10mm}\\
 }
 
 %-----------Abhilesh was here ------------
