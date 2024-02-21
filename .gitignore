@@ -9,5 +9,9 @@
 *.toc
 *.synctex.gz
 
+## Coverletter files
+Coverletter/coverletter.tex
+Coverletter/coverletter.pdf
+
 ## MacOS metadata files ##
 *.DS_Store
