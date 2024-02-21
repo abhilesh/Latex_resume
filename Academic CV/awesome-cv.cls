@@ -420,9 +420,9 @@
 %                Commands for utilities
 %-------------------------------------------------------------------------------
 % Use to align an element of tabular table
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 
 % Use to draw horizontal line with specific thickness
 \def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
@@ -603,7 +603,7 @@
 %----------Abhilesh was here -------------
 % Removing the description field for now
 \newcommand*{\cventry}[4]{%
-  \vspace{-2.0mm}
+  %\vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
@@ -808,9 +808,15 @@
 
 \newenvironment{cvpubs}{%
   \vspace{\acvSectionContentTopSkip}
+  \begin{list}{}{%
+    \setlength{\leftmargin}{0pt}%
+    \setlength{\rightmargin}{0.3cm}% Adjust this as needed
+  }
+  \item\relax
   \begin{flushleft}
 }{%
   \end{flushleft}
+  \end{list}
 }
 
 % Define a line of publication 
@@ -853,10 +859,10 @@
 %--------- Abhilesh was here ------------
 % Define an environment for cvexpitems(for cventry)
 \newenvironment{cvexpitems}{%
-  \vspace{-1.0mm}
+  \vspace{-3mm}
   \begin{justify}
   %\begin{itemize}
-  \begin{itemize}[leftmargin=0ex, itemindent=2ex, rightmargin=8ex]
+  \begin{itemize}[leftmargin=0ex, itemindent=2ex, rightmargin=15ex]
     \renewcommand{\labelitemi}{\textemdash}
 }{%
   \end{itemize}
