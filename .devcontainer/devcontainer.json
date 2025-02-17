@@ -1,0 +1,14 @@
+{
+    "name": "latex-env",
+    "extensions": [
+        "james-yu.latex-workshop"
+    ],
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "settings": {
+        "latex-workshop.latex.autoBuild.run": "onSave",
+        "latex-workshop.latex.outDir": ""
+    }
+}
