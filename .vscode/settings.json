@@ -3,7 +3,6 @@
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.docker.enabled": true,
-    "latex-workshop.docker.image.latex": "latex-docker-image",
     "latex-workshop.latex.autoBuild.run": "onFileChange",
     "latex-workshop.latex.recipes": [
         {
