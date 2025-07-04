@@ -7,7 +7,7 @@
 % Author:
 % Claud D. Park <posquit0.bj@gmail.com>
 % http://www.posquit0.com
-% 
+%
 % Modifications:
 % Abhilesh Dhawanjewar <abhilesh7@gmail.com>
 %
@@ -214,7 +214,7 @@
 \newcommand*{\headerfirstnamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\color{graytext} #1}}
 \newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\headerfont\bfseries\color{text} #1}}
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{awesome} #1}}
-\newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
+\newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{text} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
@@ -682,7 +682,7 @@
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
     %\hspace{-1cm}
-    
+
     % This is a hack for now!!! Convert the fixed distances to relative ones
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}L{\textwidth - 4.0cm} R{4cm} R{1mm}}
 }{
@@ -711,7 +711,7 @@
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
     %\hspace{-1cm}
-    
+
     % This is a hack for now!!! Convert the fixed distances to relative ones
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}L{\textwidth - 4.0cm} R{4cm} R{1mm}}
 }{
@@ -754,7 +754,7 @@
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
     %\hspace{-1cm}
-    
+
     % This is a hack for now!!! Convert the fixed distances to relative ones
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}L{\textwidth - 4.0cm} R{4cm} R{1mm}}
 }{
@@ -782,7 +782,7 @@
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
     %\hspace{-1cm}
-    
+
     % This is a hack for now!!! Convert the fixed distances to relative ones
     \begin{tabular*}{\textwidth}{@{\extracolsep{0pt}}L{\linewidth - 3cm} R{3cm} R{1mm}}
 }{
@@ -819,7 +819,7 @@
   \end{list}
 }
 
-% Define a line of publication 
+% Define a line of publication
 % Usage: \cvpub{<author>}{<title>}{<journal>}
 \newcommand*{\pubentry}[3]{%
   \pubauthorstyle{#1}  \pubtitlestyle{#2}  \pubjournalstyle{#3}
