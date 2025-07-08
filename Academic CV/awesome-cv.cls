@@ -908,10 +908,11 @@
   \begin{singlespace}
     \recipientaddressstyle{\@recipientaddress} \\\\
   \end{singlespace}
-  \vspace{-9mm}
+  %\vspace{-4mm}
   \ifthenelse{\isundefined{\@lettertitle}}
     {}
     {\lettertitlestyle{\@lettertitle} \\}
+  \vspace{8mm}
   \lettertextstyle{\@letteropening}
 }
 
