@@ -7,7 +7,7 @@
 % Author:
 % Claud D. Park <posquit0.bj@gmail.com>
 % http://www.posquit0.com
-% 
+%
 % Modifications:
 % Abhilesh Dhawanjewar <abhilesh7@gmail.com>
 %
@@ -260,7 +260,7 @@
 \newcommand*{\recipienttitlestyle}[1]{{\fontsize{11pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\lettertitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\bfseries\color{darktext} \underline{#1}}}
 \newcommand*{\letterdatestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
-\newcommand*{\lettertextstyle}{\fontsize{10pt}{1.4em}\bodyfontlight\upshape\color{graytext}}
+\newcommand*{\lettertextstyle}{\fontsize{10pt}{1.4em}\bodyfontlight\upshape\color{black}}
 \newcommand*{\letternamestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\letterenclosurestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\slshape\color{lighttext} #1}}
 
@@ -683,7 +683,7 @@
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
     %\hspace{-1cm}
-    
+
     % This is a hack for now!!! Convert the fixed distances to relative ones
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}L{\textwidth - 4.0cm} R{4cm} R{1mm}}
 }{
@@ -712,7 +712,7 @@
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
     %\hspace{-1cm}
-    
+
     % This is a hack for now!!! Convert the fixed distances to relative ones
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}L{\textwidth - 4.0cm} R{4cm} R{1mm}}
 }{
@@ -755,7 +755,7 @@
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
     %\hspace{-1cm}
-    
+
     % This is a hack for now!!! Convert the fixed distances to relative ones
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}L{\textwidth - 4.0cm} R{4cm} R{1mm}}
 }{
@@ -783,7 +783,7 @@
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
     %\hspace{-1cm}
-    
+
     % This is a hack for now!!! Convert the fixed distances to relative ones
     \begin{tabular*}{\textwidth}{@{\extracolsep{0pt}}L{\linewidth - 3cm} R{3cm} R{1mm}}
 }{
@@ -814,7 +814,7 @@
   \end{flushleft}
 }
 
-% Define a line of publication 
+% Define a line of publication
 % Usage: \cvpub{<author>}{<title>}{<journal>}
 \newcommand*{\pubentry}[3]{%
   \pubauthorstyle{#1}  \pubtitlestyle{#2}  \pubjournalstyle{#3}
